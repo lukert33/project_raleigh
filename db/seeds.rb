@@ -13,3 +13,13 @@ end
 5.times do
   User.create(username:Faker::Internet.user_name, password:Faker::Internet.password)
 end
+
+User.all.each do |user|
+  i = 0
+  until i > Challenge.all.count
+    outcome = [true,false].sample
+    UserChallenge.create(user_id: rand(user.id), challenge_id: i, success: outcome )
+    i+=1
+  end
+end
+
