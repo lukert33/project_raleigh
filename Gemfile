@@ -18,8 +18,13 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'bcrypt'
+# gem 'faker'
 
 group :test do
   gem 'faker'
   gem 'rspec'
+end
+
+group :development do
+  gem 'faker'
 end
