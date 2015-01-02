@@ -4,6 +4,7 @@ class CreateChallenges < ActiveRecord::Migration
       t.references :page
       t.references :success_page
       t.references :fail_page
+      t.timestamps
     end
   end
 end

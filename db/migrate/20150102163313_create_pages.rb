@@ -4,6 +4,7 @@ class CreatePages < ActiveRecord::Migration
       t.text :text
       t.boolean :has_challenge
       t.references :next_page
+      t.timestamps
     end
   end
 end
