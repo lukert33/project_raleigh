@@ -1,0 +1,15 @@
+i = 1
+until i == 20
+  page = Page.create(text: Faker::Lorem.paragraph, next_page_id: i+1)
+  if page.id % 3 == 0
+    page.has_challenge = true
+    Challenge.create(page_id: page.id, success_page_id: rand(20), fail_page_id: rand(20))
+    page.next_page = nil
+    page.save
+  end
+  i+=1
+end
+
+5.times do
+  User.create(username:Faker::Internet.user_name, password:Faker::Internet.password)
+end
