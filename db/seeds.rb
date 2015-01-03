@@ -23,3 +23,10 @@ User.all.each do |user|
   end
 end
 
+User.all.each do |user|
+  i = 1
+  until i > Page.all.count
+    UserPage.create(user_id: user.id, page_id: i)
+    i += 1
+  end
+end
