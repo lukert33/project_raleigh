@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   validates :username, :password, presence: true
   validates_uniqueness_of :username
+  validates_uniqueness_of :email
   has_secure_password
   after_create :set_page_one
   has_many :user_challenges
@@ -18,12 +19,15 @@ class User < ActiveRecord::Base
   end
 
   def return_errors
-    if self.errors[:username].any?
+    if self.errors[:email].any?
+      err = self.errors[:email].first
+      return "email error: #{err.capitalize}"
+    elsif self.errors[:username].any?
       err = self.errors[:username].first
-      return "username error: #{err}"
+      return "username error: #{err.capitalize}"
     elsif self.errors[:password].any?
       err = self.errors[:password].first
-      return "password error: #{err}"
+      return "password error: #{err.capitalize}"
     else
       return nil
     end
