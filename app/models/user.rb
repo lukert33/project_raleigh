@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   validates :username, :password, presence: true
   has_secure_password
   after_create :set_page_one
-  belongs_to :farthest_page, class_name: 'Page'
   has_many :user_challenges
   has_many :challenges, through: :user_challenges
   has_many :user_pages
@@ -11,6 +10,10 @@ class User < ActiveRecord::Base
   def set_page_one
     uid = self.id
     UserPage.create(user_id: uid, page_id: 1)
+  end
+
+  def farthest_page
+    self.read_pages.last
   end
 
   #THIS IS THROWING A ROLLBACK IN ACTIVE RECORD...WHY?
