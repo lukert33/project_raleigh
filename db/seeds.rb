@@ -10,11 +10,17 @@ until i == 20
   i+=1
 end
 
+pro_users = []
 5.times do
-  User.create(username:Faker::Internet.user_name, password:Faker::Internet.password)
+  pro_users << User.create(username:Faker::Internet.user_name, password:Faker::Internet.password, email: Faker::Internet.email)
 end
 
-User.all.each do |user|
+new_users = []
+3.times do
+  new_users << User.create(username:Faker::Internet.user_name, password:Faker::Internet.password, email:Faker::Internet.email)
+end
+
+pro_users.each do |user|
   i = 0
   until i > Challenge.all.count
     outcome = [true,false].sample
@@ -23,7 +29,7 @@ User.all.each do |user|
   end
 end
 
-User.all.each do |user|
+pro_users.each do |user|
   i = 1
   until i > Page.all.count
     UserPage.create(user_id: user.id, page_id: i)
