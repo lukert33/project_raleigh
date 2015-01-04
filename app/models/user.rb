@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates :username, :password, presence: true
+  validates_uniqueness_of :username
   has_secure_password
   after_create :set_page_one
   has_many :user_challenges
