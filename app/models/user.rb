@@ -16,9 +16,4 @@ class User < ActiveRecord::Base
     self.read_pages.last
   end
 
-  #THIS IS THROWING A ROLLBACK IN ACTIVE RECORD...WHY?
-  def resolve_farthest_page
-    self.update(farthest_page_id: self.read_pages.last.id)
-  end
-
 end
