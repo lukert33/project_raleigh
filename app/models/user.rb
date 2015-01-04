@@ -16,4 +16,16 @@ class User < ActiveRecord::Base
     self.read_pages.last
   end
 
+  def return_errors
+    if self.errors[:username].any?
+      err = self.errors[:username].first
+      return "username error: #{err}"
+    elsif self.errors[:password].any?
+      err = self.errors[:password].first
+      return "password error: #{err}"
+    else
+      return nil
+    end
+  end
+
 end

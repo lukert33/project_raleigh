@@ -29,6 +29,10 @@ end
 
 post '/user' do
   @user = User.create(params[:user])
+  if @user.return_errors
+    return @user.return_errors
+  end
+
   @page = User.farthest_page
   if request.xhr?
     erb :"page", layout:false
