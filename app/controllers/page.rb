@@ -1,11 +1,21 @@
 get '/page/:id' do |id|
   @page = Page.find(id)
-  if @user.read_pages.last.id < id
-    @user.read_pages << @page
+  unless @user.read_pages.include?(@page)
+    UserPage.create(user_id: @user.id, page_id: @page.id)
   end
   if request.xhr?
     erb :'page', layout:false
   else
     erb :'page'
   end
+end
+
+get '/page/:id/next' do |id|
+  @page = Page.find(id).next_page
+  redirect "/page/#{@page.id}"
+end
+
+get '/page/:id/prev' do |id|
+  @page = Page.find(id).prev_page
+  redirect "/page/#{@page.id}"
 end
