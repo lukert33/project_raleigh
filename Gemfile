@@ -21,6 +21,8 @@ gem 'bcrypt'
 # gem 'faker'
 gem 'byebug'
 
+gem 'docx'
+
 group :test do
   gem 'faker'
   gem 'rspec'

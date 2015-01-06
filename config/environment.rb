@@ -20,6 +20,9 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 require 'bcrypt'
+
+require 'docx'
+
 require 'faker'
 require 'byebug'
 
