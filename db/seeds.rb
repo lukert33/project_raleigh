@@ -1,6 +1,6 @@
 i = 1
 until i == 20
-  page = Page.create(text: Faker::Lorem.paragraph, next_page_id: i+1)
+  page = Page.create(text: Faker::Lorem.paragraphs(5).join("\n"), next_page_id: i+1)
   if page.id % 3 == 0
     Challenge.create(page_id: page.id, success_page_id: rand(20), fail_page_id: rand(20))
     page.next_page = nil
