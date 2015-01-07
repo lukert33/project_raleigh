@@ -21,6 +21,6 @@ get '/page/:id/next' do |id|
 end
 
 get '/page/:id/prev' do |id|
-  @page = Page.find(id).prev_page
+  @page = Page.find(id).user_prev_page(current_user)
   redirect "/page/#{@page.id}"
 end
