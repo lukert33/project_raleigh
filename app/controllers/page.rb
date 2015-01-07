@@ -12,8 +12,12 @@ get '/page/:id' do |id|
 end
 
 get '/page/:id/next' do |id|
-  @page = Page.find(id).next_page
-  redirect "/page/#{@page.id}"
+  page = Page.find(id)
+  if page.has_challenge?
+    redirect "/challenge/:id"
+  else
+    redirect "/page/#{page.next_page_id}"
+  end
 end
 
 get '/page/:id/prev' do |id|
