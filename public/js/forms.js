@@ -28,7 +28,7 @@ $(document).ready(function(){
     }).done(function(response){
       console.log("done POST")
       $target.closest(appendTo).empty().append(response)
-      $("#logout").toggle("600")
+      $("#logout").toggle("fast")
     }).fail(function(){
       console.log("POST failed")
     }).always(function(){
