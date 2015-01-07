@@ -27,7 +27,6 @@ $(document).ready(function(){
       data: $target.serialize()
     }).done(function(response){
       console.log("done POST")
-      debugger
       $target.closest(appendTo).empty().append(response)
       $("#logout").toggle("600")
     }).fail(function(){

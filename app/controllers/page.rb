@@ -1,4 +1,5 @@
 get '/page/:id' do |id|
+  @user = current_user
   @page = Page.find(id)
   unless @user.read_pages.include?(@page)
     UserPage.create(user_id: @user.id, page_id: @page.id)
