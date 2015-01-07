@@ -1,0 +1,32 @@
+.container{
+  font-family: Verdana;
+  text-align: center;
+}
+
+#timer{
+  border: 1px solid gold;
+  margin: 20px;
+}
+
+#exhale {
+  display: none;
+}
+
+.statbox{
+  display: none;
+}
+
+#visualizer{
+  z-index: -1;
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 40px auto;
+}
+
+.circle-base{
+  border-radius: 50%;
+  behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+}
+
+/*sunflower: rgba(241, 196, 15, 1)*/
