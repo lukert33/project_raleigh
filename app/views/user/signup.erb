@@ -1,6 +1,6 @@
 <p class="error-msg"> <%= @error %></p>
 <p>Please sign your copy of the book.</p>
-<form class="signup" entry-type="user" action="/user" method="POST">
+<form class="auth-form" appendTo=".content" entry-type="user" action="/user" method="POST">
   <input type="text" name="user[username]" placeholder="username"><br>
   <input type="text" name="user[email" placeholder="email"><br>
   <input type="password" name="user[password]" placeholder="password"><br>
