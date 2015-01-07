@@ -1,1 +1,13 @@
-<div id="page-border"></div>
+<table>
+<td><%= erb :"static/prev" %></td>
+
+<td>
+  <div id="open-page">
+    <p><%= @page.id %></p>
+    <p> <%= @page.text %></p>
+  </div>
+</td>
+
+<td><%= erb :"static/next" %></td>
+
+</table>

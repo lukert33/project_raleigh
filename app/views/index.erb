@@ -1,20 +1,22 @@
-<%= erb :"static/prev"%>
+<table>
+<td><%= erb :"static/prev"%></td>
 
+<td>
+  <div id="open-page">
+    <div class="auth-box">
+      <form class="auth-form" appendTo=".content" id="login" action="/login" method="POST">
+        <p>Sign In:</p>
+        <input type="text" name="user[username]" placeholder="username"><br>
+        <input type ="password" name="user[password]" placeholder="password"><br>
+        <input type="submit" value="Find Your Bookmark">
+      </form>
 
-<div id="open-page">
-  <div class="auth-box">
-    <form id="login" action="/login" method="POST">
-      <p>Username or Email:</p><br>
-      <input type="text" name="user[username]" placeholder="username">
-      <p>Password:</p><br>
-      <input type ="password" name="user[password]">
-      <input type="submit" value"Find Your Bookmark" >
-    </form>
+      <form class="signup get-form" appendTo=".auth-box" action="/user/new" method="GET" >
+        <input type="submit" value="Sign Up for Your Own Edition">
+      </form>
+     </div>
+  </div>
+</td>
 
-    <form class="signup" action="/user/new" method="GET" >
-      <input type="submit" value="Sign Up for a Book">
-    </form>
-   </div>
-</div>
-
-<%= erb :"static/next" %>
+<td><%= erb :"static/next" %></td>
+</table>
