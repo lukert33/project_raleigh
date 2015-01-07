@@ -8,7 +8,6 @@ $(document).ready(function(){
       data: $target.serialize()
     }).always(function(){
       $target.children("input").prop("disabled",true)
-      debugger
     }).done(function(response){
       console.log("done")
       $target.closest(".auth-box").empty().append(response)

@@ -42,14 +42,20 @@ end
 post '/user' do
   @user = User.create(params[:user])
   if @user.return_errors
-    return @user.return_errors
-  end
+    @error = @user.return_errors
+    if request.xhr?
+      erb :"user/signup", layout:false
+    else
+      erb :"user/signup"
+    end
 
-  @page = User.farthest_page
-  if request.xhr?
-    erb :"page", layout:false
   else
-    erb :"page"
+    @page = @user.farthest_page
+    if request.xhr?
+      erb :"page", layout:false
+    else
+      erb :"page"
+    end
   end
 end
 

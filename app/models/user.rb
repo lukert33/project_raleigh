@@ -19,15 +19,18 @@ class User < ActiveRecord::Base
   end
 
   def return_errors
-    if self.errors[:email].any?
-      err = self.errors[:email].first
+    if self.errors.messages[:email]
+      err = self.errors.messages[:email].first
       return "email error: #{err.capitalize}"
-    elsif self.errors[:username].any?
-      err = self.errors[:username].first
+    elsif self.errors.messages[:username]
+      err = self.errors.messages[:username].first
       return "username error: #{err.capitalize}"
-    elsif self.errors[:password].any?
-      err = self.errors[:password].first
+    elsif self.errors.messages[:password]
+      err = self.errors.messages[:password].first
       return "password error: #{err.capitalize}"
+    elsif self.errors.messages[:password_confirmation]
+      err = self.errors.messages[:password_confirmation].first
+      return "password confirmation error: #{err.capitalize}"
     else
       return nil
     end
