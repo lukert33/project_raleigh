@@ -9,11 +9,23 @@ get '/' do
   end
 end
 
-get '/user/new' do
-  if request.xhr?
-    erb :'signup', layout:false
+post "/login" do
+  user = User.find_by(username: params[:user][:username]) || User.find_by(email: params[:user][:username])
+  if user && user.authenticate(params[:user][:password])
+    session[:user_id] = user.id
+    redirect "/"
   else
-    erb :'signup'
+    set_error("Incorrect login credentials")
+    redirect "/"
+  end
+end
+
+get '/user/new' do
+  #byebug
+  if request.xhr?
+    erb :'user/signup', layout:false
+  else
+    erb :'user/signup'
   end
 end
 
