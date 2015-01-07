@@ -58,3 +58,9 @@ nav{
   min-width: 220px;
   right: 0;
 }
+.next-flip:hover{
+  cursor: pointer;
+}
+
+
+
