@@ -46,6 +46,7 @@ end
 
 post '/user' do
   @user = User.create(params[:user])
+  session[:user_id] = @user.id
   if @user.return_errors
     @error = @user.return_errors
     if request.xhr?
