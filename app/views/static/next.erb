@@ -1,4 +1,9 @@
-<a href="/page/<%= @page.id %>/next">
-  <div class="next-flip">
+<% if @page == @user.farthest_page %>
+  <div class="next-flip" id="reveal-next">
+    <form id="next-page" action="/pages/<%= @page.id %>/next" method="POST">
+  </form>
   </div>
-</a>
+<% else %>
+  <a class="turn-page" href="/pages/<%= @page.id %>/next"><div class="next-flip">
+  </div></a>
+<% end %>

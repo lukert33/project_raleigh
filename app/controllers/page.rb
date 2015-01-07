@@ -19,7 +19,12 @@ post '/pages/:id/next' do |id|
   end
 end
 
-get '/page/:id/prev' do |id|
+get '/pages/:id/next' do |id|
+  page = Page.find(id)
+  redirect "/page/#{page.next_in_backlog(current_user).id}"
+end
+
+get '/pages/:id/prev' do |id|
   @page = Page.find(id).user_prev_page(current_user)
   redirect "/page/#{@page.id}"
 end

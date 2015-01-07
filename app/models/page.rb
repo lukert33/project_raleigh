@@ -13,7 +13,17 @@ class Page < ActiveRecord::Base
   def user_prev_page(user)
     sequence = user.read_pages
     i = sequence.index(self)
-    sequence[i-1]
+    if i>0
+      sequence[i-1]
+    else
+      sequence[i]
+    end
+  end
+
+  def next_in_backlog(user)
+    sequence = user.read_pages
+    i = sequence.index(self)
+    sequence[i+1]
   end
 
   def leads_somewhere?

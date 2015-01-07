@@ -39,6 +39,10 @@ nav{
   text-align: justify;
 }
 
+#next-page{
+  display:none;
+}
+
 .prev-flip {
   display: inline-block;
   min-height: 100%;
