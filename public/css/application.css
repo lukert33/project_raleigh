@@ -31,6 +31,14 @@ nav{
   display: inline-block;
 }
 
+#open-page p {
+  font-size: 1.4em;
+  line-height: 1.3em;
+  padding-left: 2.3em;
+  padding-right: 2.3em;
+  text-align: justify;
+}
+
 .prev-flip {
   display: inline-block;
   min-height: 100%;
