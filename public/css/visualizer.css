@@ -29,4 +29,14 @@
   behavior: url(PIE.htc); /* remove if you don't care about IE8 */
 }
 
+.prompt{
+  min-width: 310px;
+  min-height: 40px;
+  width: 361px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 10px auto;
+  text-align: center;
+}
+
 /*sunflower: rgba(241, 196, 15, 1)*/

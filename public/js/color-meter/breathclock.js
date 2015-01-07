@@ -10,7 +10,6 @@ function breathClock(){
 breathClock.prototype.hardStop = function(){
   console.log(this);
   clearInterval(this.intervalId);
-  this.readout = 0;
 }
 
 breathClock.prototype.logAndRestart = function(){

@@ -19,9 +19,11 @@ $(document).ready(function() {
   })
 
   Mousetrap.bind("z", function(event){
-    event.preventDefault();
-    clock.hardStop();
-    $(".statbox").toggle("slow");
+    event.preventDefault()
+    clock.hardStop()
+    viz.setColors()
+    var captured = $("#visualizer").css("background-color")
+    $("#timer").css("background-color", captured).toggle(800)
   })
 
 });
