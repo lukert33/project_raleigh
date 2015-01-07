@@ -10,6 +10,12 @@ class Page < ActiveRecord::Base
     !!challenge
   end
 
+  def user_prev_page(user)
+    sequence = user.read_pages
+    i = sequence.index(self)
+    sequence[i-1]
+  end
+
   def leads_somewhere?
     has_challenge? || next_page != nil
   end
