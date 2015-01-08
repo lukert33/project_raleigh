@@ -1,13 +1,15 @@
 <table>
-<td><%= erb :"static/prev" %></td>
+  <tr><nav> <%= erb :"user/logout" %></nav></tr>
+  <tr>
+    <td><%= erb :"static/prev" %></td>
 
-<td>
-  <div id="open-page">
-    <p><%= @page.id %></p>
-    <p> <%= @page.text %></p>
-  </div>
-</td>
+    <td>
+      <div id="open-page">
+        <p><%= @page.id %></p>
+        <p> <%= @page.text %></p>
+      </div>
+    </td>
 
-<td><%= erb :"static/next" %></td>
-
+    <td><%= erb :"static/next" %></td>
+  </tr>
 </table>

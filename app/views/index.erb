@@ -1,22 +1,25 @@
 <table>
-<td><div class="prev-flip"></div></td>
+  <tr><nav> <%= erb :"user/logout" %></nav></tr>
+  <tr>
+    <td><div class="prev-flip"></div></td>
 
-<td>
-  <div id="open-page">
-    <div class="auth-box">
-      <form class="auth-form" appendTo=".content" id="login" action="/login" method="POST">
-        <p>Sign In:</p>
-        <input type="text" name="user[username]" placeholder="username"><br>
-        <input type ="password" name="user[password]" placeholder="password"><br>
-        <input type="submit" value="Find Your Bookmark">
-      </form>
+    <td>
+      <div id="open-page">
+        <div class="auth-box">
+          <form class="auth-form" appendTo=".content" id="login" action="/login" method="POST">
+            <p>Sign In:</p>
+            <input type="text" name="user[username]" placeholder="username"><br>
+            <input type ="password" name="user[password]" placeholder="password"><br>
+            <input type="submit" value="Find Your Bookmark">
+          </form>
 
-      <form class="signup get-form" appendTo=".auth-box" action="/user/new" method="GET" >
-        <input type="submit" value="Sign Up for Your Own Edition">
-      </form>
-     </div>
-  </div>
-</td>
+          <form class="signup get-form" appendTo=".auth-box" action="/user/new" method="GET" >
+            <input type="submit" value="Sign Up for Your Own Edition">
+          </form>
+         </div>
+      </div>
+    </td>
 
-<td><div class="next-flip"></div></td>
+    <td><div class="next-flip"></div></td>
+  </tr>
 </table>
