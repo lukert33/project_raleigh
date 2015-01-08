@@ -14,7 +14,6 @@ visualBehavior.prototype.toggleDirection = function(){
 
 visualBehavior.prototype.clockColors = function(clock){
   var newValue = Math.floor(clock.readout * 100);
-  console.log(newValue);
  // Scale each color every 3 time units so as not to jump
   if(newValue <= 255){
     if(this.increase){

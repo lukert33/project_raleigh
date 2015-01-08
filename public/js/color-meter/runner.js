@@ -28,11 +28,13 @@ $(document).ready(function() {
     event.preventDefault()
     clock.hardStop()
     viz.setColors()
+    clock.stopClock()
     var captured = $("#visualizer").css("background-color")
     $("#timer").css("background-color", captured).toggle(800)
 
     var $target = $("span.data")
     var result = {success: evalSuccess(viz.red)}
+    debugger
     $.ajax({
       url: "/user_challenge/"+$target.attr("challengeId"),
       type: "POST",
