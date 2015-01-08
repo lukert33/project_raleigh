@@ -8,7 +8,6 @@ function breathClock(){
 }
 
 breathClock.prototype.hardStop = function(){
-  console.log(this);
   clearInterval(this.intervalId);
 }
 
@@ -78,7 +77,6 @@ breathClock.prototype.meanExhale = function(){
   $.each(this.exhaleLengths , function() {
     total += this;
   });
-  console.log(total);
   return parseFloat( (total/ this.exhaleLengths.length).toFixed(2))
 }
 

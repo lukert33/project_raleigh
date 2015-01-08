@@ -34,7 +34,6 @@ $(document).ready(function() {
 
     var $target = $("span.data")
     var result = {success: evalSuccess(viz.red)}
-    debugger
     $.ajax({
       url: "/user_challenge/"+$target.attr("challengeId"),
       type: "POST",
