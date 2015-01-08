@@ -18,7 +18,7 @@ i = 1
 until i == 22
   page = Page.create(text: Faker::Lorem.paragraphs(5).join("\n"), next_page_id: i+1)
   if page.id % 3 == 0
-    Challenge.create(page_id: page.id, success_page_id: i+1, fail_page_id: i+3, html_display: color_chall)
+    Challenge.create(page_id: page.id, success_page_id: i+1, fail_page_id: i+2, html_display: color_chall)
     page.next_page = nil
     page.save
   end
