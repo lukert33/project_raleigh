@@ -12,9 +12,26 @@ $(document).ready(function() {
     })
   })
 
-  $(".content").on("click", "#reveal-next", function(event){
+  $(".content").on("click", ".next-flip", function(){
     event.preventDefault()
-    $("#next-page").submit();
+    var $target = $(event.target)
+    var $form = $target.children("form")
+    var appendTo = $form.attr("appendTo")
+    $.ajax({
+      url: $form.attr("action"),
+      type: $form.attr("method")
+    }).done(function(response){
+      console.log(response)
+      console.log("new farthest page")
+      $(appendTo).empty().append(response)
+    }).fail(function(){
+      console.log("failed to find next page")
+    })
   })
+
+  // $(".content").on("click", "#reveal-next", function(event){
+  //   event.preventDefault()
+  //   $("#next-page").submit();
+  // })
 
 });

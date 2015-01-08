@@ -10,12 +10,17 @@ end
 
 post '/pages/:id/next' do |id|
   @user = current_user
-  @page = Page.find(id)
-  if @page.has_challenge?
-    redirect "/challenge/#{@page.challenge.id}"
+  page = Page.find(id)
+  if page.has_challenge?
+    redirect "/challenge/#{page.challenge.id}"
   else
-    UserPage.find_or_create_by(user_id: @user.id, page_id: @page.next_page_id)
-    redirect "/page/#{@page.next_page_id}"
+    UserPage.find_or_create_by(user_id: @user.id, page_id: page.next_page_id)
+    @page = page.next_page
+    if request.xhr?
+      erb :"page", layout:false
+    else
+      erb :"page"
+    end
   end
 end
 

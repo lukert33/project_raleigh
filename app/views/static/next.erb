@@ -1,6 +1,6 @@
 <% if @page == @user.farthest_page %>
   <div class="next-flip" id="reveal-next">
-    <form id="next-page" action="/pages/<%= @page.id %>/next" method="POST">
+    <form id="next-page" action="/pages/<%= @page.id %>/next" method="POST" appendTo=".content">
   </form>
   </div>
 <% else %>
