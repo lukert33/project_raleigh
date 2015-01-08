@@ -1,13 +1,9 @@
-get "/challenge/test" do
-  erb :"challenge/color-meter"
-end
-
 get '/challenge/:id' do |id|
   @challenge = Challenge.find(id)
   if request.xhr?
-    erb :'challenge', layout:false
+    erb :"challenge/single", layout:false
   else
-    erb :'challenge'
+    erb :"challenge/single"
   end
 end
 

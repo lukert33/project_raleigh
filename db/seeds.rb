@@ -1,8 +1,24 @@
+color_chall = '<div class="container">
+  <div id="timer">
+    <div id="visualizer" class="circle-base">
+    </div>
+
+    <div class="prompt">
+      <p><em>space</em> alters</p>
+      <p><em>z</em> captures...</p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="/js/color-meter/breathclock.js"></script>
+<script type="text/javascript" src="/js/color-meter/visualizer.js"></script>
+<script type="text/javascript" src="/js/color-meter/runner.js"></script>'
+
 i = 1
-until i == 20
+until i == 22
   page = Page.create(text: Faker::Lorem.paragraphs(5).join("\n"), next_page_id: i+1)
   if page.id % 3 == 0
-    Challenge.create(page_id: page.id, success_page_id: rand(20), fail_page_id: rand(20))
+    Challenge.create(page_id: page.id, success_page_id: i+1, fail_page_id: i+3, html_display: color_chall)
     page.next_page = nil
     page.save
   end
