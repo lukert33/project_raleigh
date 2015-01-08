@@ -11,8 +11,14 @@ get '/challenge/:id' do |id|
   end
 end
 
-post '/challenge/user_challenge/:id' do |id|
-  UserChallenge.create(params[:user_challenge])
+post '/user_challenge/:id' do |id|
+  @challenge = Challenge.find(id)
+  @result = UserChallenge.create(user_id: current_user.id, challenge_id: @challenge.id, success:params)
+  if @result.success
+    redirect "/page/#{@challenge.success_page.id}"
+  else
+    redirect "page/#{@challenge.fail_page.id}"
+  end
 end
 
 get '/challenge/result/:id' do |id|

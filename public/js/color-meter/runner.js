@@ -6,6 +6,12 @@ $(document).ready(function() {
     viz.setColors();
   }, 100);
 
+  var evalSuccess = function(redNum){
+    if(redNum < 100 ){
+      return true
+    } else {return false}
+  }
+
   Mousetrap.bind("space", function(event){
     event.preventDefault();
     clock.logAndRestart();
@@ -24,6 +30,17 @@ $(document).ready(function() {
     viz.setColors()
     var captured = $("#visualizer").css("background-color")
     $("#timer").css("background-color", captured).toggle(800)
+
+    var $target = $("span.data")
+    var result = {success: evalSuccess(viz.red)}
+    $.ajax({
+      url: "/user_challenge/"+$target.attr("challengeId"),
+      type: "POST",
+      data: result
+    }).done( function(response){
+      console.log("challenge result: "+result)
+      $(".content").empty().append(response)
+    })
   })
 
 });
