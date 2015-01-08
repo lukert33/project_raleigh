@@ -47,11 +47,18 @@ table{
   height: 200px;
   text-align: center;
   margin: 120px auto;
+  background-color: #f1c40f;
+  line-height: 0.3em;
+
 }
 
 #login {
-  background-color: rgba(246, 196, 25,0.7);
-  margin: 20px auto 40px auto;
+  margin: 16px auto;
+}
+
+
+#login input {
+  margin:2px;
 }
 
 #open-page{
@@ -76,20 +83,26 @@ table{
 .prev-flip {
   display: inline-block;
   min-height: 100%;
-  background-color: blue;
+  background-color: rgba(189, 195, 199, 0.7);
   min-width: 220px;
   left: 0;
+}
+
+.prev-flip:hover{
+  background-color: rgba(189, 195, 199, 1.0);
 }
 
 .next-flip {
   display: inline-block;
   min-height: 100%;
-  background-color: green;
+  background-color: rgba(52, 152, 219, 0.3);
   min-width: 220px;
   right: 0;
 }
 .next-flip:hover{
   cursor: pointer;
+  border: 1px solid gold;
+  background-color: rgba(52, 152, 219,0.7);
 }
 
 
