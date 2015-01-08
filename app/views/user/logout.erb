@@ -1,1 +1,3 @@
-<a id="logout" href="/logout"><button>Save & Exit</button></a>
+<% if current_user %>
+  <a id="logout" href="/logout"><button>Save & Exit</button></a>
+<% end %>
