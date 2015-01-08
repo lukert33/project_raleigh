@@ -12,7 +12,7 @@ $(document).ready(function() {
     })
   })
 
-  $(".content").on("click", ".next-flip", function(){
+  $(".content").on("click", "#reveal-next", function(){
     event.preventDefault()
     var $target = $(event.target)
     var $form = $target.children("form")
