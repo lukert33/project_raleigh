@@ -12,7 +12,6 @@ post '/user_challenge/:id' do |id|
   @result = UserChallenge.create(user_id: current_user.id, challenge_id: @challenge.id, success:params)
   if @result.success
     UserPage.create(user_id: session[:user_id], page_id: @challenge.success_next_id )
-    byebug
     redirect "/page/#{@challenge.success_next_id}"
   else
     UserPage.create(user_id: session[:user_id], page_id: @challenge.fail_next_id)

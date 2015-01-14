@@ -21,7 +21,6 @@ $(document).ready(function() {
       url: $form.attr("action"),
       type: $form.attr("method")
     }).done(function(response){
-      console.log(response)
       console.log("new farthest page")
       $(appendTo).empty().append(response)
     }).fail(function(){

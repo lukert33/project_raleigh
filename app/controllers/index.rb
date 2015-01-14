@@ -26,7 +26,6 @@ get "/logout" do
 end
 
 get '/user/new' do
-  #byebug
   if request.xhr?
     erb :'user/signup', layout:false
   else
