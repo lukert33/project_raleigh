@@ -14,14 +14,12 @@ breathClock.prototype.hardStop = function(){
 breathClock.prototype.logAndRestart = function(){
   var timer = this;
   if( timer.inhale == true ){
-    // debugger;
     clearInterval(timer.intervalId);
     timer.inhaleLengths.push(timer.stopClock());
     timer.inhale = false;
     timer.exhale = true;
     timer.intervalId = setInterval(function(){ timer.readout += .01}, 10 );
   } else {
-    // debugger;
     clearInterval(timer.intervalId);
     timer.exhaleLengths.push(timer.stopClock());
     timer.exhale = false;
