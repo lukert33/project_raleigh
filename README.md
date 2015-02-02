@@ -1,1 +1,6 @@
-###Describe your project here.
+###Project Raleigh
+is the framework for a "win your own adventure" novella. The pages of the novella are laid out much as they would be in a desktop reading application. At certain points, the reader encounters not a page of text but a lightly animated, javascript-based game. They have to first decipher the rules of this game then try to beat it. If they succeed, the narrative branches into a (generally) more positive story trajectory. If they fail at the game, things get worse for the characters.
+
+The application tracks a reader's progress through the book, so even though different readers will encounter pages and games in a variety of sequences, a given reader's history is always consistent. The application bookmarks their last page, so when they return they can pick up where they left off.
+
+I intend to add an admin toolset so that writers can upload their own text and choose from a suite of javascript-based challenges to use as branching points in the narrative. The games are all contained is discreet database elements, so they can easily be swapped out, and the pool of games can be infinitely expanded.
